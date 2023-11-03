@@ -1,10 +1,7 @@
 package de.brights.databases.orm.MyCompanyApp.entity;
 
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 @Entity
 public class Employee {
@@ -12,10 +9,15 @@ public class Employee {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+
     private String name;
     private String jobTitle;
 
     private int employeeNumber;
+
+    @ManyToOne
+    @JoinColumn(name = "department_id")
+    private Department department;
 
     public void setId(Long id) {
         this.id = id;
@@ -47,5 +49,13 @@ public class Employee {
 
     public void setEmployeeNumber(int employeeNumber) {
         this.employeeNumber = employeeNumber;
+    }
+
+    public Department getDepartment() {
+        return department;
+    }
+
+    public void setDepartment(Department department) {
+        this.department = department;
     }
 }

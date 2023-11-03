@@ -33,4 +33,10 @@ public class MyControler {
     }
 
 
+    @GetMapping("/so")
+    public @ResponseBody String irgendwas() {
+        return "Hallo";
+    }
+
+
 }

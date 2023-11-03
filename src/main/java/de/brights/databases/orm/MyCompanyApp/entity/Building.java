@@ -6,12 +6,16 @@ import java.util.List;
 
 @Entity
 public class Building {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
-    private String address;
-    private int floorCount;
+    private String address; // Additional field
+    private int floorCount; // Additional field
+
+    @OneToMany(mappedBy = "building")
+    private List<Department> departments;
 
     public Long getId() {
         return id;
@@ -43,6 +47,14 @@ public class Building {
 
     public void setFloorCount(int floorCount) {
         this.floorCount = floorCount;
+    }
+
+    public List<Department> getDepartments() {
+        return departments;
+    }
+
+    public void setDepartments(List<Department> departments) {
+        this.departments = departments;
     }
 }
 
