@@ -1,11 +1,11 @@
 -- Erstelle die Datenbank "Company", falls sie noch nicht existiert
-CREATE DATABASE IF NOT EXISTS mycompany;
+CREATE DATABASE IF NOT EXISTS company;
 
 -- Verwende die Datenbank "mycompany"
-USE mycompany;
+USE company;
 
 -- Erstelle die Tabelle "Employee"
-CREATE TABLE Angestellter (
+CREATE TABLE Employee (
                           id INT PRIMARY KEY AUTO_INCREMENT,
                           name VARCHAR(255) NOT NULL,
                           lastname VARCHAR(255) NOT NULL,
@@ -14,7 +14,7 @@ CREATE TABLE Angestellter (
 );
 
 -- Beispiel-Datensätze einfügen
-INSERT INTO Angestellter (name, lastname, salary, job) VALUES
+INSERT INTO Employee (name, lastname, salary, job) VALUES
                                                        ('Max', 'Mustermann', 50000.00, 'Entwickler'),
                                                        ('Anna', 'Musterfrau', 60000.00, 'Manager'),
                                                        ('Peter', 'Schmidt', 55000.00, 'Designer'),
