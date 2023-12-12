@@ -2,7 +2,7 @@ version: '3.8'
 
 services:
   # MySQL-Datenbank-Service
-  meineDatenbank:
+  db:
     image: mysql:latest
     environment:
       MYSQL_ROOT_PASSWORD: rootpassword
@@ -15,15 +15,15 @@ services:
       - ./scripts/init.sql:/docker-entrypoint-initdb.d/init.sql
 
   # Spring Boot-Anwendung
-  myApp:
+  myapp:
     build:
       context: .
       dockerfile: Dockerfile
     environment:
-      SPRING_DATASOURCE_URL: jdbc:mysql://meineDatenbank:3306/mycompany
+      SPRING_DATASOURCE_URL: jdbc:mysql://db:3306/mycompany
       SPRING_DATASOURCE_USERNAME: admin
       SPRING_DATASOURCE_PASSWORD: admin
     ports:
-      - "8081:8080"
+      - "8083:8080"
     depends_on:
-      - meineDatenbank
+      - db
