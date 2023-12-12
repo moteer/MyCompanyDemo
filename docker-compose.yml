@@ -11,8 +11,9 @@ services:
       MYSQL_PASSWORD: admin
     ports:
       - "3309:3306"
-    #volumes:
-    #  - ./scripts/init.sql:/docker-entrypoint-initdb.d/init.sql
+    volumes:
+      - ./scripts/init.sql:/docker-entrypoint-initdb.d/init.sql
+    command: ["bash", "-c", "chmod 644 /docker-entrypoint-initdb.d/init.sql && docker-entrypoint.sh mysqld"]
 
 
   # Spring Boot-Anwendung

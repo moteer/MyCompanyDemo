@@ -5,7 +5,7 @@ CREATE DATABASE IF NOT EXISTS company;
 USE company;
 
 -- Erstelle die Tabelle "Employee"
-CREATE TABLE Employee (
+CREATE TABLE employee (
                           id INT PRIMARY KEY AUTO_INCREMENT,
                           name VARCHAR(255) NOT NULL,
                           lastname VARCHAR(255) NOT NULL,
@@ -14,7 +14,7 @@ CREATE TABLE Employee (
 );
 
 -- Beispiel-Datensätze einfügen
-INSERT INTO Employee (name, lastname, salary, job) VALUES
+INSERT INTO employee (name, lastname, salary, job) VALUES
                                                        ('Max', 'Mustermann', 50000.00, 'Entwickler'),
                                                        ('Anna', 'Musterfrau', 60000.00, 'Manager'),
                                                        ('Peter', 'Schmidt', 55000.00, 'Designer'),
